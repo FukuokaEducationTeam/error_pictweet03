@@ -1,13 +1,13 @@
 function send_comment() {
   const comment_form_button = document.getElementById("comment_form_button");
-  const comment_form = document.getElementById("comment_form");
+  const comment_form = document.getElementById("comment-form");
 
   comment_form_button.addEventListener("click", (e) => {
     e.preventDefault();
 
     const formData = new FormData(comment_form);
     const XHR = new XMLHttpRequest();
-    const url = location.pathname + "/comments"
+    const url = pathname + "/comments"
 
     XHR.open("POST", url, true);
     XHR.responseType = "json";
@@ -19,7 +19,7 @@ function send_comment() {
         return null;
       }
 
-      const comment = XHR.response.comment;
+      const comment = XHR.response.txet;
       const name = XHR.response.user_name;
       const comments_area = document.getElementsByClassName("comments")[0];
 
@@ -37,7 +37,7 @@ function send_comment() {
       alert("Request failed");
     };
 
-    comment_form.reset();
+    commment_form.reset();
   });
 }
 
