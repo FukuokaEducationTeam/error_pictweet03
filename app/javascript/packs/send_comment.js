@@ -12,14 +12,13 @@ function send_comment() {
     XHR.open("POST", url, true);
     XHR.responseType = "json";
     XHR.send(formData);
-    XHR.onload = () => {
 
       if (XHR.status != 200) {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
       }
 
-      const comment = XHR.response.txet;
+      const comment = XHR.response.text;
       const name = XHR.response.user_name;
       const comments_area = document.getElementsByClassName("comments")[0];
 
@@ -37,7 +36,7 @@ function send_comment() {
       alert("Request failed");
     };
 
-    commment_form.reset();
+    comment_form.reset();
   });
 }
 
