@@ -12,6 +12,7 @@ function send_comment() {
     XHR.open("POST", url, true);
     XHR.responseType = "json";
     XHR.send(formData);
+    XHR.onload = () => {
 
       if (XHR.status != 200) {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
@@ -36,7 +37,7 @@ function send_comment() {
       alert("Request failed");
     };
 
-    comment_form.reset();
+    commment_form.reset();
   });
 }
 
